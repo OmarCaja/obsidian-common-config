@@ -18,10 +18,10 @@ below, and a small script pushes them out to every other vault you use.
 
 `install.sh` pushes this vault's config into another vault three different ways:
 
-| | Themes & plugins | Settings (`app`, `appearance`, `community-plugins`, `core-plugins`, `templates`) | `00_Meta/` (attachments + templates) |
+| | Themes, plugins & reference notes | Settings (`app`, `appearance`, `community-plugins`, `core-plugins`, `templates`) | `00_Meta/` scaffolding (attachments + templates) |
 |---|---|---|---|
-| **Method** | Symlinked | Copied | Scaffolded |
-| **Why** | Edit once here, every vault picks it up instantly — even live, through Obsidian's UI | Each vault can still diverge (enable an extra plugin, tweak core plugins) without affecting the others | It's vault content — created if missing, never overwritten |
+| **Method** | Symlinked | Copied | Created if missing |
+| **Why** | Edit once here, every vault picks it up instantly — even live, through Obsidian's UI | Each vault can still diverge (enable an extra plugin, tweak core plugins) without affecting the others | It's vault content a vault then owns — never overwritten once it exists |
 | **To reset a vault** | Nothing to do, it's always current | Re-run `install.sh` | Delete the file/folder and re-run `install.sh` |
 
 Vault-specific state — `workspace.json`, etc. — is never touched. Those
@@ -31,9 +31,13 @@ genuinely differ per vault.
 
 | Path | What it is |
 |---|---|
-| `.obsidian/themes/Catppuccin/` | Theme |
-| `.obsidian/plugins/floating-toc/` | Community plugin |
-| `.obsidian/plugins/obsidian-plugin-toc/` | Community plugin |
+| `.obsidian/themes/Minimal/` | Theme |
+| `.obsidian/plugins/floating-toc/` | Community plugin — floating table of contents |
+| `.obsidian/plugins/obsidian-plugin-toc/` | Community plugin — table of contents |
+| `.obsidian/plugins/obsidian-minimal-settings/` | Community plugin — Minimal theme settings |
+| `.obsidian/plugins/obsidian-style-settings/` | Community plugin — CSS variable controls for themes/snippets |
+| `.obsidian/plugins/obsidian-hider/` | Community plugin — hides UI chrome (titlebar, status bar, etc.) |
+| `.obsidian/plugins/editing-toolbar/` | Community plugin — Word-like editing toolbar |
 | `.obsidian/app.json` | Attachment folder (`00_Meta/Attachments`) and other app settings |
 | `.obsidian/appearance.json` | Active theme, appearance settings |
 | `.obsidian/community-plugins.json` | Which community plugins are enabled |
@@ -41,6 +45,7 @@ genuinely differ per vault.
 | `.obsidian/templates.json` | Template folder (`00_Meta/Templates`) |
 | `00_Meta/Attachments/` | Where pasted images/files land, keeping the vault root clean |
 | `00_Meta/Templates/Template.md` | Starter template, scaffolded into new vaults |
+| `00_Meta/Obsidian Cheat Sheet.md` | Markdown/wikilink syntax reference, symlinked into every vault |
 
 ## Usage
 

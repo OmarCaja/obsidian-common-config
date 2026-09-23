@@ -8,15 +8,16 @@ A shared Obsidian theme, community plugins, and default settings, reused across 
 
 ## Layout
 
-- `.obsidian/themes/Catppuccin/` — the theme
-- `.obsidian/plugins/floating-toc/`, `.obsidian/plugins/obsidian-plugin-toc/` — community plugins (each is third-party plugin code: `manifest.json`, `main.js`, `styles.css`, `data.json`)
+- `.obsidian/themes/Minimal/` — the theme
+- `.obsidian/plugins/` — community plugins (each is third-party plugin code: `manifest.json`, `main.js`, `styles.css`, `data.json`): `floating-toc`, `obsidian-plugin-toc`, `obsidian-minimal-settings` (Minimal theme settings), `obsidian-style-settings`, `obsidian-hider`, `editing-toolbar`
 - `.obsidian/app.json`, `.obsidian/appearance.json`, `.obsidian/community-plugins.json`, `.obsidian/core-plugins.json`, `.obsidian/templates.json` — canonical default settings distributed to other vaults (`app.json` sets `attachmentFolderPath` to `00_Meta/Attachments`, `templates.json` sets the template `folder` to `00_Meta/Templates`)
 - `00_Meta/Attachments/`, `00_Meta/Templates/Template.md` — vault content (not `.obsidian` config) that `attachmentFolderPath`/`templates.json` point at; scaffolded into other vaults, not kept in sync with them
+- `00_Meta/Obsidian Cheat Sheet.md` — reference note, symlinked into every vault like a theme/plugin
 - `install.sh` — deployment script (see below)
 
 ## How distribution works (`install.sh /path/to/vault`)
 
-- Themes and plugins are **symlinked** into the target vault's `.obsidian/themes` and `.obsidian/plugins` — editing this repo updates every linked vault immediately, including live via Obsidian's UI since this repo is itself a vault.
+- Themes, plugins, and `00_Meta/Obsidian Cheat Sheet.md` are **symlinked** into the target vault — editing this repo updates every linked vault immediately, including live via Obsidian's UI since this repo is itself a vault.
 - The five settings JSON files are **copied**, not linked, so each vault can diverge (enable an extra plugin, tweak core plugins, change its own `app.json`) without affecting others. Re-running `install.sh` resets a vault's settings back to these defaults — including overwriting any vault-local changes to those files.
 - `00_Meta/Attachments/` and `00_Meta/Templates/` are **scaffolded**: created if missing, and any template file not already present in the target is copied in — but existing files are never overwritten, since this is vault content a vault owns once it exists.
 - Vault-specific state (`workspace.json`, etc.) is never touched.

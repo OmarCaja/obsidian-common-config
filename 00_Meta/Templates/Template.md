@@ -1,3 +1,6 @@
+---
+created: {{date}} {{time}}
+aliases:
+tags:
+---
 # {{title}}
-
-_Created: {{date}} {{time}}_

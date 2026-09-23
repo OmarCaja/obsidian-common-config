@@ -1,4 +1,8 @@
 [
   "floating-toc",
-  "obsidian-plugin-toc"
+  "obsidian-plugin-toc",
+  "obsidian-minimal-settings",
+  "obsidian-style-settings",
+  "obsidian-hider",
+  "editing-toolbar"
 ]

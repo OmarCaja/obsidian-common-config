@@ -39,6 +39,9 @@ for tpl in "$REPO"/00_Meta/Templates/*; do
   [ -e "$VAULT/00_Meta/Templates/$name" ] || cp "$tpl" "$VAULT/00_Meta/Templates/$name"
 done
 
+# Reference notes: symlinked, like themes/plugins, so an edit here shows everywhere.
+ln -sfn "$REPO/00_Meta/Obsidian Cheat Sheet.md" "$VAULT/00_Meta/Obsidian Cheat Sheet.md"
+
 # Drop symlinks left behind for a theme/plugin since removed from the repo.
 # (glob without a trailing slash so already-broken symlinks still match)
 for link in "$OBS"/themes/* "$OBS"/plugins/*; do
